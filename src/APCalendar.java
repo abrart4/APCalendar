@@ -20,8 +20,15 @@ public class APCalendar {
     /** Returns the value representing the day of the week for the first day of year,
      * where 0 denotes Sunday, 1 denotes Monday, ..., and 6 denotes Saturday.
      */
-    private static int firstDayOfYear(int year) {
-        return 0;
+    public static int firstDayOfYear(int year) {
+        int accumulator = 0;
+        for (int i = 1; i <= year; i ++) {
+            accumulator ++;
+            if (isLeapYear(i - 1)) {
+                accumulator ++;
+            }
+        }
+        return (accumulator - 2) % 7;
     }
 
     /** Returns n, where month, day, and year specify the nth day of the year.
