@@ -1,7 +1,11 @@
 public class APCalendar {
+    private static int[] daysOfMonths = new int[] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
     /** Returns true if year is a leap year and false otherwise. */
     private static boolean isLeapYear(int year) {
-        return year % 4 == 0;
+        if (year % 4 != 0) return false;
+        if (year % 100 != 0) return true;
+        return year % 400 == 0;
     }
 
     /** Returns the number of leap years between year1 and year2, inclusive.
@@ -20,7 +24,7 @@ public class APCalendar {
     /** Returns the value representing the day of the week for the first day of year,
      * where 0 denotes Sunday, 1 denotes Monday, ..., and 6 denotes Saturday.
      */
-    public static int firstDayOfYear(int year) {
+    private static int firstDayOfYear(int year) {
         int accumulator = 0;
         for (int i = 1; i <= year; i ++) {
             accumulator ++;
@@ -36,7 +40,15 @@ public class APCalendar {
      * Precondition: The date represented by month, day, year is a valid date.
      */
     private static int dayOfYear(int month, int day, int year) {
-        return 0;
+        int accumulator = 0;
+        for (int i = 1; i < month; i ++) {
+            accumulator += daysOfMonths[i - 1];
+        }
+        accumulator += day;
+        if (isLeapYear(year) && month > 2) {
+            accumulator ++;
+        }
+        return accumulator;
     }
 
     /** Returns the value representing the day of the week for the given date
@@ -45,6 +57,8 @@ public class APCalendar {
      * Precondition: The date represented by month, day, year is a valid date.
      */
     public static int dayOfWeek(int month, int day, int year) {
-        return 0;
+        int dayOfYear = dayOfYear(month, day, year);
+        return dayOfYear % (firstDayOfYear(year) - 7);
+        // THIS IS WRONG
     }
 }
