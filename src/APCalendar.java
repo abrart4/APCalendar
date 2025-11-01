@@ -50,7 +50,6 @@ public class APCalendar {
         }
         return accumulator;
     }
-
     /** Returns the value representing the day of the week for the given date
      * (month, day, year), where 0 denotes Sunday, 1 denotes Monday, ...,
      * and 6 denotes Saturday.
@@ -58,7 +57,22 @@ public class APCalendar {
      */
     public static int dayOfWeek(int month, int day, int year) {
         int dayOfYear = dayOfYear(month, day, year);
-        return dayOfYear % (firstDayOfYear(year) - 7);
-        // THIS IS WRONG
+        int firstDayOfYear = firstDayOfYear(year);
+        return (dayOfYear + firstDayOfYear) % 7;
+    }
+
+    /* Calls isLeapYear to allow for testing private method from outside */
+    public static boolean isLeapYear$test(int year) {
+        return isLeapYear(year);
+    }
+
+    /* Calls firstDayOfYear to allow for testing private method from outside */
+    public static int firstDayOfYear$test(int year) {
+        return firstDayOfYear(year);
+    }
+
+    /* Calls dayOfYear to allow for testing private method from outside */
+    public static int dayOfYear$test(int month, int day, int year) {
+        return dayOfYear(month, day, year);
     }
 }
