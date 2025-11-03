@@ -24,9 +24,14 @@ public class Main {
         print("Testing dayOfYear");
         print(APCalendar.dayOfYear$test(3 /* ap test case */, 1, 2017)); // expected: 60
         print(APCalendar.dayOfYear$test(3 /* ap test case */, 1, 2016)); // expected: 61
+        print(APCalendar.dayOfYear$test(12, 31, 2024)); // expected: 366
+        print(APCalendar.dayOfYear$test(12, 31, 2025)); // expected: 365
         print("Testing dayOfWeek");
         print(APCalendar.dayOfWeek(1, 5 /* ap test case */, 2019)); // expected: 6
         print(APCalendar.dayOfWeek(1, 10 /* ap test case */, 2019)); // expected: 4
+        print(APCalendar.dayOfWeek(3, 23, 2024)); // expected: 6
+        print(APCalendar.dayOfWeek(11, 3, 2025)); // expected: 1
+        print(APCalendar.dayOfWeek(11, 6, 2025)); // expected: 4
     }
 
     private static void print(Object text) {
