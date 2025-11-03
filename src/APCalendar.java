@@ -65,7 +65,7 @@ public class APCalendar {
         int firstDayOfYear = firstDayOfYear(year);
         int dayOfYear = dayOfYear(month, day, year);
 
-        return -1;
+        return (firstDayOfYear + dayOfYear - 1) % 7;
     }
 
     /* Calls isLeapYear to allow for testing private method from outside */
