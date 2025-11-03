@@ -23,16 +23,13 @@ public class APCalendar {
 
     /** Returns the value representing the day of the week for the first day of year,
      * where 0 denotes Sunday, 1 denotes Monday, ..., and 6 denotes Saturday.
+     * <p>
+     * Note: completely out of scope, this is only an unimplemented helper method on the AP.
+     * <p><
+     * <a href="https://en.wikipedia.org/wiki/Determination_of_the_day_of_the_week#Gauss's_algorithm">...</a>
      */
     private static int firstDayOfYear(int year) {
-        int accumulator = 0;
-        for (int i = 1; i <= year; i ++) {
-            accumulator ++;
-            if (isLeapYear(i - 1)) {
-                accumulator ++;
-            }
-        }
-        return (accumulator - 2) % 7;
+        return (1 + 5 * ((year - 1) % 4) + 4 * ((year - 1) % 100) + 6 * ((year - 1) % 400)) % 7;
     }
 
     /** Returns n, where month, day, and year specify the nth day of the year.
@@ -58,7 +55,7 @@ public class APCalendar {
     public static int dayOfWeek(int month, int day, int year) {
         int dayOfYear = dayOfYear(month, day, year);
         int firstDayOfYear = firstDayOfYear(year);
-        return (dayOfYear + firstDayOfYear) % 7;
+        return -1;
     }
 
     /* Calls isLeapYear to allow for testing private method from outside */
