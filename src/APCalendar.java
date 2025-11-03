@@ -51,10 +51,20 @@ public class APCalendar {
      * (month, day, year), where 0 denotes Sunday, 1 denotes Monday, ...,
      * and 6 denotes Saturday.
      * Precondition: The date represented by month, day, year is a valid date.
+     * dayOfWeek(1, 10, 2019) = 4
+     *     firstDayOfYear(2019) =
+     *     dayOfYear(1, 10, 2019) =
+     * dayOfWeek(1, 5, 2019) = 6
+     *     firstDayOfYear(2019) =
+     *     dayOfYear(1, 5, 2019) =
+     * dayOfWeek(3, 23, 2024) = 6
+     *     firstDayOfYear(2024) =
+     *     dayOfYear(3, 23, 2024) =
      */
     public static int dayOfWeek(int month, int day, int year) {
-        int dayOfYear = dayOfYear(month, day, year);
         int firstDayOfYear = firstDayOfYear(year);
+        int dayOfYear = dayOfYear(month, day, year);
+
         return -1;
     }
 
