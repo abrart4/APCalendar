@@ -52,14 +52,14 @@ public class APCalendar {
      * and 6 denotes Saturday.
      * Precondition: The date represented by month, day, year is a valid date.
      * dayOfWeek(1, 10, 2019) = 4
-     *     firstDayOfYear(2019) =
-     *     dayOfYear(1, 10, 2019) =
+     *     firstDayOfYear(2019) = 2
+     *     dayOfYear(1, 10, 2019) = 10
      * dayOfWeek(1, 5, 2019) = 6
-     *     firstDayOfYear(2019) =
-     *     dayOfYear(1, 5, 2019) =
+     *     firstDayOfYear(2019) = 2
+     *     dayOfYear(1, 5, 2019) = 5
      * dayOfWeek(3, 23, 2024) = 6
-     *     firstDayOfYear(2024) =
-     *     dayOfYear(3, 23, 2024) =
+     *     firstDayOfYear(2024) = 1
+     *     dayOfYear(3, 23, 2024) = 83
      */
     public static int dayOfWeek(int month, int day, int year) {
         int firstDayOfYear = firstDayOfYear(year);
